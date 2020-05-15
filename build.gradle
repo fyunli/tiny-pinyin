@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+}
+
+apply plugin: 'java-library'
+
+def versionTag() {
+    return new Date().format("yyyyMMddHH", TimeZone.getTimeZone("Asia/Shanghai"))
+}
+
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.ahocorasick:ahocorasick:0.4.0'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+}
+
+group 'li.fyun'
+version versionTag()
+
+sourceCompatibility = 1.8 // java 8
+targetCompatibility = 1.8
